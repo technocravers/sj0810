@@ -18,6 +18,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\app\components\signin.component.html" />
+    <Content Include="wwwroot\app\components\signin.component.ts" />
+    <Content Include="wwwroot\css\signin.css" />
     <Content Include="wwwroot\tsconfig.json" />
   </ItemGroup>
 

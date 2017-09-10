@@ -10,6 +10,10 @@
 
     <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/css/font-awesome.css" rel="stylesheet" />
+    @if (IsSectionDefined("SpecialOther"))
+    {
+        @RenderSection("SpecialOther")
+    }
     @RenderSection("styles", required: false)
 
     @*Solve IE 11 issues *@

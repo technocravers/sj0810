@@ -5,13 +5,14 @@ import { HomeComponent } from './components/home.component';
 import { PhotosComponent } from './components/photos.component';
 import { AlbumsComponent } from './components/albums.component';
 import { AlbumPhotosComponent } from './components/album-photos.component';
+import { SigninComponent } from './components/signin.component';
 import { accountRoutes, accountRouting } from './components/account/routes';
 
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/signin',
         pathMatch: 'full'
     },
     {
@@ -29,6 +30,10 @@ const appRoutes: Routes = [
     {
         path: 'albums/:id/photos',
         component: AlbumPhotosComponent
+    },
+    {
+        path: 'signin',
+        component: SigninComponent
     }
 ];
 

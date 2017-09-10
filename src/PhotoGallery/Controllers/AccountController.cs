@@ -55,7 +55,7 @@ namespace PhotoGallery.Controllers
                         new ClaimsPrincipal(new ClaimsIdentity(_claims, CookieAuthenticationDefaults.AuthenticationScheme)),
                         new Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties {IsPersistent = user.RememberMe });
 
-
+                    
                     _authenticationResult = new GenericResult()
                     {
                         Succeeded = true,
@@ -148,6 +148,33 @@ namespace PhotoGallery.Controllers
                 _loggingRepository.Commit();
             }
 
+            _result = new ObjectResult(_registrationResult);
+            return _result;
+        }
+
+
+        [Route("userrole")]
+        [HttpPost]
+        public IActionResult UserRole()
+        {
+            IActionResult _result = new ObjectResult(false);
+            GenericResult _registrationResult = null;
+            if (User.IsInRole("Admin"))
+            {
+                _registrationResult = new GenericResult()
+                {
+                    Succeeded = true,
+                    Message = "Admin"
+                };
+            }
+            else if(User.IsInRole("Employee"))
+            {
+                _registrationResult = new GenericResult()
+                {
+                    Succeeded = true,
+                    Message = "Employee"
+                };
+            }
             _result = new ObjectResult(_registrationResult);
             return _result;
         }

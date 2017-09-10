@@ -10,6 +10,7 @@ export class MembershipService {
     private _accountRegisterAPI: string = 'api/account/register/';
     private _accountLoginAPI: string = 'api/account/authenticate/';
     private _accountLogoutAPI: string = 'api/account/logout/';
+    private _accountRoleAPI: string = 'api/account/userrole/';
 
     constructor(public accountService: DataService) { }
 
@@ -28,6 +29,11 @@ export class MembershipService {
     logout() {
         this.accountService.set(this._accountLogoutAPI);
         return this.accountService.post(null, false);
+    }
+
+    getUserRole() {
+        this.accountService.set(this._accountRoleAPI);
+        return this.accountService.post();
     }
 
     isUserAuthenticated(): boolean {
